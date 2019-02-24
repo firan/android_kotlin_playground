@@ -18,13 +18,13 @@ class RegisterWebserviceImpl() : RegisterWebservice {
     override fun register(user: UserRequest, context: Context) {
         val apiInterface = APIClient.client.create(APIInterface::class.java)
         val call = apiInterface.register(user)
-        call.enqueue(object : Callback<UserResponse> {
-            override fun onFailure(call: Call<UserResponse>?, t: Throwable?) {
+        call.enqueue(object : Callback<Void> {
+            override fun onFailure(call: Call<Void>?, t: Throwable?) {
                 Toast.makeText(context, t!!.message.toString(), Toast.LENGTH_LONG).show()
             }
 
-            override fun onResponse(call: Call<UserResponse>?, response: Response<UserResponse>?) {
-                Toast.makeText(context, response!!.body().toString(), Toast.LENGTH_LONG).show()
+            override fun onResponse(call: Call<Void>?, response: Response<Void>?) {
+                Toast.makeText(context, response?.code().toString(), Toast.LENGTH_LONG).show()
             }
 
         })
