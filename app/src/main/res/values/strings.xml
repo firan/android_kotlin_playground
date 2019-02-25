@@ -5,4 +5,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="error_unexpected">Unexpected Error</string>
     <string name="error_user_exists">User with this e-mail already exists. Log in or use "Forgot Password" option.</string>
+    <string name="error_wrong_credentials">Login failed, wrong e-mail/username or password.</string>
 </resources>

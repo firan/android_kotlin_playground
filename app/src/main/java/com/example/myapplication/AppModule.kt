@@ -3,10 +3,8 @@ package com.example.myapplication
 import androidx.room.Room
 import com.example.myapplication.data.repository.UserRepository
 import com.example.myapplication.data.repository.UserRepositoryImpl
-import com.example.myapplication.usecase.account.AuthStateManager
-import com.example.myapplication.usecase.account.RegisterAccount
-import com.example.myapplication.usecase.account.SecureSharedPrefsStorage
-import com.example.myapplication.usecase.account.SecureStorage
+import com.example.myapplication.usecase.account.*
+import com.example.myapplication.view.activity.loginactivity.LoginActivityViewModel
 import com.example.myapplication.view.activity.registeractivity.RegisterActivityViewModel
 import com.example.myapplication.view.fragment.start.StartViewModel
 import org.koin.android.ext.koin.androidApplication
@@ -37,9 +35,12 @@ val AppModule = module {
     // View Models
     viewModel { StartViewModel(get()) }
     viewModel { RegisterActivityViewModel(get()) }
+    viewModel { LoginActivityViewModel(get()) }
 
     // Usecases
     factory { RegisterAccount(get(), get(), get(DISK_IO_EXECUTOR)) }
+    factory { Login(get(), get(), get(DISK_IO_EXECUTOR)) }
+    factory { Logout(get(), get(), get(), get(DISK_IO_EXECUTOR)) }
     factory<SecureStorage> { SecureSharedPrefsStorage(get()) }
     factory { AuthStateManager(get()) }
 }

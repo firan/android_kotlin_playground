@@ -1,4 +1,4 @@
-package com.example.myapplication.data.webservice
+package com.example.myapplication.webservice
 
 import com.example.myapplication.data.to.UserRequest
 import com.example.myapplication.data.to.UserResponse
@@ -10,7 +10,7 @@ interface APIInterface {
     @POST("/api/v1/register")
     fun register(@Body userRequest: UserRequest): Call<UserResponse>
 
-    @GET("/api/v1/login")
+    @POST("/api/v1/login")
     fun login(@Body userRequest: UserRequest): Call<UserResponse>
 
     @PUT("/api/v1/updateUsername")

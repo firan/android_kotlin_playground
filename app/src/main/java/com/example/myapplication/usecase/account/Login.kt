@@ -14,42 +14,51 @@ import java.lang.Exception
 import java.util.*
 import java.util.concurrent.Executor
 
-class RegisterAccount(
+class Login(
     private val authStateManager: AuthStateManager,
     private val userRepository: UserRepository,
     private val diskIOExecutor: Executor
 ) {
     companion object {
-        const val USER_EXISTS_CODE = 409
+        const val USER_NOT_FOUND_CODE = 404
+        const val BAD_REQUEST = 400
     }
 
-    fun register(userRequest: UserRequest, successHandler: () -> Unit, failureHandler: (Throwable?) -> Unit) {
+    fun login(userRequest: UserRequest, successHandler: () -> Unit, failureHandler: (Throwable?) -> Unit) {
         val apiInterface = APIClient.client.create(APIInterface::class.java)
-        val call = apiInterface.register(userRequest)
+        val call = apiInterface.login(userRequest)
         call.enqueue(object : Callback<UserResponse> {
             override fun onFailure(call: Call<UserResponse>, t: Throwable?) {
                 if (t != null) {
-                    Timber.e(t, "RegisterWebservice failure")
+                    Timber.e(t, "LoginWebservice failure")
                 }
                 failureHandler(t)
             }
 
             override fun onResponse(call: Call<UserResponse>?, response: Response<UserResponse>) {
                 if (response.isSuccessful) {
-                    Timber.v("Register successfully")
+                    Timber.v("Logged in successfully")
                     val body = response.body() as UserResponse
                     storeAuthState(body)
                     storeAccountInformation(body)
                     successHandler()
                 } else {
-                    if (response.code() == USER_EXISTS_CODE) {
-                        Timber.e("Register failed, user with this e-mail exists")
-                        failureHandler(UserExistsException())
-                        return
-                    } else {
-                        Timber.e("Register failed, ${response.code()}")
-                        failureHandler(Exception(response.errorBody().toString()))
-                        return
+                    when (response.code()) {
+                        USER_NOT_FOUND_CODE -> {
+                            Timber.e("Login failed, wrong e-mail/username or password ${response.code()}")
+                            failureHandler(WrongCredentialsException())
+                            return
+                        }
+                        BAD_REQUEST -> {
+                            Timber.e("Bad request ${response.code()}")
+                            failureHandler(Exception(response.code().toString()))
+                            return
+                        }
+                        else -> {
+                            Timber.e("Login failed, wrong e-mail/username or password ${response.code()}")
+                            failureHandler(Exception(response.code().toString()))
+                            return
+                        }
                     }
                 }
             }

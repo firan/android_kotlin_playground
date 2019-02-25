@@ -54,7 +54,7 @@ class RegisterActivity : AppCompatActivity() {
         val email = enterEmail.text.toString().trim()
 
         if (username.isNullOrEmpty() || password.isNullOrEmpty() || email.isNullOrEmpty()) {
-            Toast.makeText(applicationContext, "Please fill or fields.", Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext, "Please fill all fields.", Toast.LENGTH_LONG).show()
         } else {
             performLogin(username, password, email)
         }

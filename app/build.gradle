@@ -27,6 +27,7 @@ android {
     buildTypes {
         all {
             buildConfigField("String", "API_URL", "\"http://10.219.61.146:8080\"")
+            buildConfigField("String", "API_URL_HOME", "\"http://192.168.0.12:8080\"")
         }
         release {
             minifyEnabled false
