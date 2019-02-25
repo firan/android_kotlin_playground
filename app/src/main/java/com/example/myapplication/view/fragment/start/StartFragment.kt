@@ -23,12 +23,11 @@ class StartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val bundle = arguments ?: return
-        val args = StartFragmentArgs.fromBundle(bundle)
 
-        startViewModel.loadUserData(args.userName)
-        startViewModel.user.observe(viewLifecycleOwner, Observer { user ->
-            welcomeWithNameTv.text = user.firstName
+        startViewModel.loadUserData()
+        startViewModel.userAccounts.observe(viewLifecycleOwner, Observer { users ->
+            if(!users.isNullOrEmpty())
+                welcomeWithNameTv.text = users.first().email
         })
     }
 }

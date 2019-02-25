@@ -8,7 +8,7 @@ import retrofit2.http.*
 interface APIInterface {
 
     @POST("/api/v1/register")
-    fun register(@Body userRequest: UserRequest): Call<Void>
+    fun register(@Body userRequest: UserRequest): Call<UserResponse>
 
     @GET("/api/v1/login")
     fun login(@Body userRequest: UserRequest): Call<UserResponse>

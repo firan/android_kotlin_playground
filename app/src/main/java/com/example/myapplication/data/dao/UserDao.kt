@@ -10,14 +10,13 @@ import com.example.myapplication.data.entity.User
 @Dao
 interface UserDao {
     @Query("SELECT * FROM user")
-    fun getAll(): List<User>
+    fun getAll(): LiveData<List<User>>
 
     @Query("SELECT * FROM user WHERE uid IN (:userIds)")
     fun loadAllByIds(userIds: IntArray): List<User>
 
-    @Query("SELECT * FROM user WHERE first_name LIKE :first AND " +
-           "last_name LIKE :last LIMIT 1")
-    fun findByName(first: String, last: String): LiveData<User>
+    @Query("SELECT * FROM user WHERE email LIKE :email LIMIT 1")
+    fun findByEmail(email: String): LiveData<User>
 
     @Query("SELECT * FROM user WHERE uid = :userid LIMIT 1")
     fun findById(userid: Int): LiveData<User>

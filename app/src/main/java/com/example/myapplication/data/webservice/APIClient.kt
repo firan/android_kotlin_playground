@@ -1,5 +1,6 @@
 package com.example.myapplication.data.webservice
 
+import com.example.myapplication.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -14,7 +15,7 @@ class APIClient {
                 val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
 
                 return Retrofit.Builder()
-                    .baseUrl("http://192.168.0.18:8080")
+                    .baseUrl(BuildConfig.API_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(client)
                     .build()
