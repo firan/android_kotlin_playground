@@ -7,8 +7,8 @@
     <fragment android:id="@+id/startFragment" android:name="com.example.myapplication.view.fragment.start.StartFragment"
               android:label="@string/label_start_fragment" tools:layout="@layout/fragment_start">
     </fragment>
-    <fragment android:id="@+id/secondFragment" android:name="com.example.myapplication.view.fragment.second.SecondFragment"
-              android:label="@string/label_second_fragment" tools:layout="@layout/fragment_second">
+    <fragment android:id="@+id/secondHostFragment" android:name="com.example.myapplication.view.fragment.second.SecondHostFragment"
+              android:label="@string/label_second_fragment" tools:layout="@layout/fragment_second_host">
     </fragment>
     <fragment android:id="@+id/settingsFragment" android:name="com.example.myapplication.view.fragment.settings.SettingsFragment"
               android:label="@string/label_settings_fragment" tools:layout="@layout/fragment_settings">

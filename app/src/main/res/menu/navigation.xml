@@ -7,7 +7,7 @@
             android:icon="@drawable/ic_home_filled_24dp"
             android:title="start" />
     <item
-            android:id="@+id/secondFragment"
+            android:id="@+id/secondHostFragment"
             android:icon="@drawable/ic_cloud_download_black_24dp"
             android:title="second" />
     <item

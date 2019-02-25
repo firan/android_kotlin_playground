@@ -30,10 +30,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         supportFragmentManager.registerFragmentLifecycleCallbacks(fragmentHandler, true)
-
-//        val host = NavHostFragment.create(R.navigation.nav_main)
-//        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, host)
-//            .setPrimaryNavigationFragment(host).commit()
     }
 
     override fun onSupportNavigateUp() = findNavController(R.id.nav_host_fragment).navigateUp()

@@ -14,4 +14,18 @@
         <item name="itemTextColor">@color/bottom_navigation_item_color</item>
     </style>
 
+    <style name="BaseTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabTextAppearance">@style/TabText</item>
+        <item name="android:background">@color/PrimaryInteractionColor</item>
+        <item name="tabSelectedTextColor">@android:color/white</item>
+        <item name="tabIndicatorColor">@android:color/white</item>
+        <item name="tabTextColor">#82c8cdd2</item>
+    </style>
+
+    <style name="TabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TabLayout" parent="BaseTabLayout" />
+
 </resources>

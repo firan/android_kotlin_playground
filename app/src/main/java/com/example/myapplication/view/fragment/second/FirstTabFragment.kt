@@ -6,14 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.myapplication.R
+import com.example.myapplication.view.fragment.interfaces.FlatActionBar
 
-class SecondFragment : Fragment() {
+class FirstTabFragment : Fragment(), FlatActionBar {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_second, container, false)
+        return inflater.inflate(R.layout.fragment_second_host, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

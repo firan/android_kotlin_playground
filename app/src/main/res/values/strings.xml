@@ -7,4 +7,6 @@
     <string name="label_start_fragment">Start</string>
     <string name="label_second_fragment">Second</string>
     <string name="label_settings_fragment">Settings</string>
+    <string name="label_first_tab_fragment">First Tab</string>
+    <string name="label_second_tab_fragment">Second Tab</string>
 </resources>

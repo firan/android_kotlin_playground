@@ -5,6 +5,6 @@
                                              android:id="@+id/frameLayout2"
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent"
-                                             tools:context=".view.fragment.second.SecondFragment">
+                                             tools:context=".view.fragment.second.SecondTabFragment">
 
 </androidx.constraintlayout.widget.ConstraintLayout>
