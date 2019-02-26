@@ -25,13 +25,25 @@ android {
         }
     }
     buildTypes {
-        all {
-            buildConfigField("String", "API_URL", "\"http://10.219.61.146:8080\"")
-            buildConfigField("String", "API_URL_HOME", "\"http://192.168.0.12:8080\"")
-        }
+        all {}
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    flavorDimensions "version"
+    productFlavors {
+        home {
+            dimension "version"
+            buildConfigField("String", "API_URL", "\"http://192.168.0.12:8080\"")
+            applicationIdSuffix ".home"
+            versionNameSuffix "-home"
+        }
+        office {
+            dimension "version"
+            buildConfigField("String", "API_URL", "\"http://10.219.61.146:8080\"")
+            applicationIdSuffix ".office"
+            versionNameSuffix "-office"
         }
     }
 }
