@@ -13,12 +13,16 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true">
-        <activity android:name=".view.activity.registeractivity.RegisterActivity"
-                  android:noHistory="true"
-                  android:windowSoftInputMode="adjustResize">
+        <activity android:name=".view.activity.splashscreen.SplashScreenActivity">
         </activity>
-        <activity android:name=".view.activity.loginactivity.LoginActivity"
-                  android:noHistory="true">
+        <activity
+                android:name=".view.activity.registeractivity.RegisterActivity"
+                android:noHistory="true"
+                android:windowSoftInputMode="adjustResize">
+        </activity>
+        <activity
+                android:name=".view.activity.loginactivity.LoginActivity"
+                android:noHistory="true">
         </activity>
         <activity android:name=".view.activity.mainactivity.MainActivity">
         </activity>
@@ -28,9 +32,10 @@
                 android:theme="@android:style/Theme.NoDisplay"
                 android:windowSoftInputMode="stateHidden">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
     </application>

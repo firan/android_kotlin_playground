@@ -84,5 +84,9 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
 
+    // Logging framework
     implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    // Lottie (animation framework)
+    implementation "com.airbnb.android:lottie:2.8.0"
 }

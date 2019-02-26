@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.usecase.account.AuthStateManager
 import com.example.myapplication.view.activity.loginactivity.LoginActivity
 import com.example.myapplication.view.activity.mainactivity.MainActivity
+import com.example.myapplication.view.activity.splashscreen.SplashScreenActivity
 import org.koin.android.ext.android.inject
 
 class LaunchActivity: AppCompatActivity() {
@@ -17,7 +18,7 @@ class LaunchActivity: AppCompatActivity() {
         val activityIntent = if (authStateManager.hasState()) {
             Intent(this, MainActivity::class.java)
         } else {
-            Intent(this, LoginActivity::class.java)
+            Intent(this, SplashScreenActivity::class.java)
         }
 
         activityIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
