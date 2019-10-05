@@ -14,7 +14,7 @@ import com.example.myapplication.usecase.common.showProgressDialog
 import com.example.myapplication.view.activity.mainactivity.MainActivity
 import com.example.myapplication.view.activity.registeractivity.RegisterActivity
 import kotlinx.android.synthetic.main.activity_login.*
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : AppCompatActivity() {
 

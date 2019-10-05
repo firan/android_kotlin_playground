@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import com.example.myapplication.R
 import kotlinx.android.synthetic.main.fragment_start.*
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class StartFragment : Fragment() {
 
